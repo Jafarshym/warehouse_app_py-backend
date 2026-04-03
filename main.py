@@ -10,6 +10,7 @@ from app.api import purchases
 from app.api import products
 from app.api import inventory
 from app.api import OneProduct
+from app.api import search
 
 
 Base.metadata.create_all(bind=engine)
@@ -31,7 +32,8 @@ app.include_router(sales.router)
 app.include_router(purchases.router)
 app.include_router(products.router)
 app.include_router(inventory.router)
-app.include_router(OneProduct.router) 
+app.include_router(OneProduct.router)
+app.include_router(search.router) 
 
 if __name__ == "__main__":
     uvicorn.run("main:app", host="0.0.0.0", port=8000, reload=True)
